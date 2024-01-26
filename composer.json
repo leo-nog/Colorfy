@@ -1,0 +1,20 @@
+{
+    "name": "leonog/colorfy",
+    "description": "",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "author": [
+        {
+            "name": "Leo Nogueira",
+            "email": "leo.nogueira@webmix.dev"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Colorfy\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    }
+}
