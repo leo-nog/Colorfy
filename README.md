@@ -6,7 +6,7 @@ The simple PHP library to colorfy your console and get it awesome!
 
 To install PHP Colorfy, you just have to run: 
 ```sh
-composer install leo-nog\colorfy
+composer require leo-nog\colorfy
 ```
 
 # How to use
