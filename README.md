@@ -1,6 +1,6 @@
 # PHP Colorfy 
 
-A simple library to colorfy your console and get it awesome!
+The simple PHP library to colorfy your console and get it awesome!
 
 ## Installing
 
