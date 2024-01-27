@@ -1,6 +1,6 @@
 # PHP Colorfy 
 
-The simple PHP library to colorfy your console and get it awesome!
+The simple PHP library to colorfy your console/browser returns and get it awesome!
 
 ## Installing
 
@@ -11,7 +11,7 @@ composer require leo-nog\colorfy
 
 # How to use
 
-To colorfy your console returns you can just do like the example above:
+To colorfy your console you can just do like the example above:
 
 #### Text Colors
 ```php
@@ -20,7 +20,7 @@ require __DIR__.'vendor/autoload.php';
 
 use Colorfy/Colorfy;
 
-echo Colorfy::default("Important text here\n"); // Default color selected on terminal
+echo Colorfy::default("Important text here\n"); // Default color selected on terminal (or black if displaying on browser)
 echo Colorfy::black("Important text here\n"); // Black
 echo Colorfy::white("Important text here\n"); // White
 echo Colorfy::gray("Important text here\n"); // Gray
@@ -46,7 +46,7 @@ require __DIR__.'vendor/autoload.php';
 
 use Colorfy/Colorfy;
 
-echo Colorfy::default("Important text here\n", 'default'); // Default color selected on terminal
+echo Colorfy::default("Important text here\n", 'default'); // Default color selected on terminal (or white if displaying on browser)
 echo Colorfy::default("Important text here\n", 'black'); // Black
 echo Colorfy::default("Important text here\n", 'white'); // White
 echo Colorfy::default("Important text here\n", 'gray'); // Gray

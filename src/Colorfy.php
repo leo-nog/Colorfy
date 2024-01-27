@@ -25,8 +25,29 @@ class Colorfy {
         'white'=>97
     ];
 
+    public static $htmlColors = [
+        'black'=>'#000000',
+        'gray'=>'#808080',
+        'red'=>'#B53737',
+        'green'=>'#008000',
+        'blue'=>'#2B35AF',
+        'yellow'=>'#FFFF00',
+        'magenta'=>'#78004C',
+        'cyan'=>'#00ffff',
+        'lightGray'=>'#d3d3d3',
+        'lightRed'=>'#FF7F7F',
+        'lightGreen'=>'#90EE90',
+        'lightBlue'=>'#89CFF0',
+        'lightMagenta'=>'#FFD0FF',
+        'lightCyan'=>'#ACFFFC',
+        'white'=>'#FFFFFF'
+    ];
+
     public static function __callStatic($name, $args)
     {
+        if(!self::isSupported())
+        return self::colorfyHtml($args[0]??null,$name,$args[1]??null);
+
         $text = $args[0]??false;
         $color = self::$colors[$name]??self::$colors['default'];
         $bgColor = self::$colors[$args[1]??'default']+10;
@@ -39,6 +60,29 @@ class Colorfy {
 
         if($text)
         return $bgColor.$color.$text.self::$default;
+    }
+
+    private static function colorfyHtml($text, $textColor, $bgColor) {
+        $color = self::$htmlColors[$textColor]??self::$htmlColors['black'];
+        $bgColor = self::$htmlColors[$bgColor??'white'];
+        $text = nl2br($text);
+
+        if($text)
+        return "<span style='padding:3px 7px;color:$color;background-color:$bgColor'>$text</span>";
+    }
+
+    private static function isSupported()
+    {
+        if (DIRECTORY_SEPARATOR === '\\') {
+            if (function_exists('sapi_windows_vt100_support') && @sapi_windows_vt100_support(STDOUT)) {
+                return true;
+            } elseif (getenv('ANSICON') !== false || getenv('ConEmuANSI') === 'ON') {
+                return true;
+            }
+            return false;
+        } else {
+            return function_exists('posix_isatty') && @posix_isatty(STDOUT);
+        }
     }
 
 }
