@@ -1,15 +1,16 @@
 # PHP Colorfy 
 
 The simple PHP library to colorfy your console/browser returns and get it awesome!
-
+<br><br>
 ## Installing
 
 To install PHP Colorfy, you just have to run: 
 ```sh
 composer require leo-nog\colorfy
 ```
+<br>
 
-# How to use
+## How to use
 
 To colorfy your console you can just do like the example above:
 
@@ -64,3 +65,25 @@ echo Colorfy::default("Important text here\n", 'lightYellow'); // Light Yellow
 echo Colorfy::default("Important text here\n", 'lightMagenta'); // Light Magenta
 echo Colorfy::default("Important text here\n", 'lightCyan'); // Light Cyan
 ```
+<br>
+
+## Compatibility
+
+The PHP Colorfy lib supports both terminal and browser clients, addapting the return to fit each situation with the same code.
+Here is an example:
+```php
+<?php
+
+include __DIR__.'vendor/autoload.php';
+
+use Colorfy\Colorfy;
+
+echo Colorfy::white('Error! Please, try again later.', red);
+```
+<em>That example results on:<br></em>
+### Console
+![image](https://github.com/leo-nog/Colorfy/assets/82295691/4d886d8a-f1f0-4d03-a0c6-b9539a601a24)
+
+
+### Browser
+![image](https://github.com/leo-nog/Colorfy/assets/82295691/c10a247c-64e1-4ce4-9a77-debe099368b9)
